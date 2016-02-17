@@ -16,7 +16,6 @@ Sublime Text itself tells if the document is dirty or not but only since the las
 
 * [Installation](#installation)
 * [Configuration](#configuration)
-* [Donation](#donation)
 * [License](#license)
 
 ## Installation
