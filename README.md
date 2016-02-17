@@ -1,8 +1,8 @@
 # FileModifyStatus
 
-FileModifyStatus is a Sublime Text plugin that shows the _modified_ status of the file in the status bar. This is done through checking the undo stack.
+FileModifyStatus is a Sublime Text plugin that shows the _modified_ status of the file in the status bar. This is done through checking the save status.
 
-Sublime Text itself tells if the document is dirty or not but only since the last save. This plugin however checks if the file is modified since it was ever opened.
+Sublime Text itself tells if the document is dirty or not but only since the last save. This plugin however checks if the file has been saved since it was ever opened.
 
 * If the file is modified:
 
@@ -36,7 +36,7 @@ If the unicode icons doesn't fit your needs, you can change them via settings. T
 "unmodified_marker": "◯",
 
 // The marker icon/text for modified files
-"modified_marker": "◉"
+"modified_marker": "@"
 ```
 
 Open you user settings file via this menu:
@@ -45,11 +45,6 @@ Open you user settings file via this menu:
 
 Your changes will require a __restart__.
 
-## Donation
-
-If you want to support further creative work, you can make a donation. Thanks.
-
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=W2NXRPD43YSCU&amp;lc=TR&amp;item_name=Sublime%20Text&amp;item_number=FileModifyStatus&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="[paypal]" /></a>
 
 ## License
 
