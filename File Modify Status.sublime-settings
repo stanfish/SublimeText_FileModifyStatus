@@ -1,7 +1,7 @@
 {
     // The marker icon/text for unmodified files
-    "unmodified_marker": "◯",
+    "unsaved_marker": "◯",
 
     // The marker icon/text for modified files
-    "modified_marker": "◉"
+    "saved_marker": "@"
 }
