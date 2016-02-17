@@ -2,23 +2,26 @@ import sublime_plugin
 import sublime
 
 
-class FileModifyStatus(sublime_plugin.EventListener):
+class FileSavedStatus(sublime_plugin.EventListener):
+
+
     def on_modified(self, view):
-        self.settings = sublime.load_settings("File Modify Status.sublime-settings")
+        self.settings = sublime.load_settings("File Saved Status.sublime-settings")
         self.check_status(view)
 
     def on_activated(self, view):
-        self.settings = sublime.load_settings("File Modify Status.sublime-settings")
+        self.settings = sublime.load_settings("File Saved Status.sublime-settings")
         self.check_status(view)
 
+    def on_post_save(self, view):
+        self.settings = sublime.load_settings("File Saved Status.sublime-settings")
+        view.set_status("(.0.file_saved_status", self.settings.get("saved_marker") )
+       # view.settings().set("color_scheme", "Packages/Color Scheme - Default/Monokai.tmTheme")        
+
+
     def check_status(self, view):
-        if view.command_history(0, True) in [(None, None, 0), ('', None, 1), ('', None, 0)]:
-            self.mark(view, self.settings.get("unmodified_marker"))
+        if view.get_status("(.0.file_saved_status")=="":
+            view.set_status("(.0.file_saved_status", self.settings.get("unsaved_marker"))
+         #   view.settings().set("color_scheme", "Packages/Color Scheme - Default/LAZY.tmTheme")   
 
-        else:
-            self.mark(view, self.settings.get("modified_marker"))
-
-    def mark(self, view, marker):
-        # Item key below is based on the standard defined here:
-        # https://github.com/maliayas/SublimeText_PluginStandards#status-bar-items
-        view.set_status("(.0.file_modify_status", marker + '  ')
+    
